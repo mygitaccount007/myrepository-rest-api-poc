@@ -4,8 +4,6 @@
 __pycache__/
 *.db
 .DS_Store
-<<<<<<< HEAD
 venv/
-=======
-venv/
->>>>>>> a4296fde8aec54b526ad0e31612497e9501dca80
+
+
