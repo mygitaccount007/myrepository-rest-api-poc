@@ -9,13 +9,19 @@ class Item(Resource):
         required=True,
         help="This field cannot be left blank!"
     )
+    parser.add_argument('description',
+        type=str,
+        required=True,
+        help="This field cannot be left blank!"
+    )
+
     parser.add_argument('store_id',
         type=int,
         required=True,
         help="Every item needs a store id."
     )
 
-    @jwt_required()
+   # @jwt_required()
     def get(self, name):
         item = ItemModel.find_by_name(name)
         if item:
@@ -53,6 +59,7 @@ class Item(Resource):
             item = ItemModel(name, **data)
         else:
             item.price = data['price']
+            item.description = data['description']
 
         item.save_to_db()
 
